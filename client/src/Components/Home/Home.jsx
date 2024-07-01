@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import home_img from "../Images/Home_page_photo.png";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -54,12 +54,17 @@ const Home = () => {
               backgroundColor: "var(--primary-color)",
               color: "var(--secondary-color)",
               borderRadius: "30px",
+
               padding: { xs: "10px 15px", md: "10px 20px" },
             }}
           >
             <Link
               to="capture"
-              style={{ textDecoration: "none", color: "inherit" }}
+              style={{
+                textDecoration: "none",
+                display: "flex",
+                color: "inherit",
+              }}
             >
               Let's take
               <ArrowForwardIcon />
