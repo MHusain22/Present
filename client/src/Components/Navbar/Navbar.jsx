@@ -113,8 +113,12 @@ const Navbar = () => {
           <ButtonLink>
             <Link to="capture" style={{textDecoration:"none",color:'inherit'}}>Capture</Link>
           </ButtonLink>
-          <ButtonLink>Attendance</ButtonLink>
-          <ButtonLink>About Us</ButtonLink>
+          <ButtonLink>
+            <Link to="attendance" style={{textDecoration:"none",color:'inherit'}}>Attendance</Link>
+          </ButtonLink>
+          <ButtonLink>
+            <Link to="about" style={{textDecoration:"none",color:'inherit'}}>About Us</Link>
+          </ButtonLink>
         </Box>
 
         {/* Hamburger Menu for small screens */}
