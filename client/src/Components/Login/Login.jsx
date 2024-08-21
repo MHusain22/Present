@@ -36,7 +36,7 @@ const Login = ({ onLogin }) => {
           color: 'var(--primary-color)',
         }}
       >
-        <h2>Login</h2>
+        <h2 style={{fontSize:"40px"}}>Login</h2>
         <TextField
           fullWidth
           margin="normal"
