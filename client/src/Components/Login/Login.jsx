@@ -11,13 +11,13 @@ const Login = ({ onLogin }) => {
 
   const handleLogin = async () => {
     // try {
-    //   const response = await axios.post('API', {
+    //   const response = await axios.post('http://localhost:8080/login', {
     //     email,
     //     password,
     //   });
     //   console.log('Login successful:', response.data);
       onLogin();
-      navigate('/capture');
+      navigate('/options');
     // } catch (error) {
     //   console.error('Login failed:', error);
     // }

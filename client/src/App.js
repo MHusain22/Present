@@ -5,6 +5,7 @@ import Capture from "./Components/Capture/Capture";
 import Login from "./Components/Login/Login";
 import Attendance from "./Components/Attendance/Attendance";
 import About from "./Components/About/About";
+import Options from './Components/Options/Options';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 
 const App = () => {
@@ -30,6 +31,9 @@ const App = () => {
       </Routes>
       <Routes>
         <Route exact path="/about" element={<About />} />
+      </Routes>
+      <Routes>
+        <Route exact path="/options" element={<Options />} />
       </Routes>
     </BrowserRouter>
   );
