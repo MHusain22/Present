@@ -28,7 +28,7 @@ const ButtonLink = ({ children, onClick }) => (
   </Button>
 );
 
-const Capture = () => {
+const Capture = ({isLoggedIn}) => {
   const [image, setImage] = useState("");
   const webcamRef = useRef(null);
 
@@ -39,6 +39,7 @@ const Capture = () => {
   }, [webcamRef]);
 
   return (
+    isLoggedIn ? <Box>
     <Box
       sx={{
         display: "flex",
@@ -89,7 +90,9 @@ const Capture = () => {
         )}
       </Box>
     </Box>
+    </Box> : <p>login to capture</p>
   );
 };
 
 export default Capture;
+{/*  */}

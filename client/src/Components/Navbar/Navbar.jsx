@@ -108,6 +108,9 @@ const Navbar = () => {
         {/* Navigation List for large screens */}
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <ButtonLink>
+            <Link to="login" style={{textDecoration:"none",color:'inherit'}}>Login</Link>
+          </ButtonLink>
+          <ButtonLink>
             <Link to="capture" style={{textDecoration:"none",color:'inherit'}}>Capture</Link>
           </ButtonLink>
           <ButtonLink>Attendance</ButtonLink>
