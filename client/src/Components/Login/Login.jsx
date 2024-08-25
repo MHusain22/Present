@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Box, TextField, Button, InputAdornment, IconButton } from '@mui/material';
 import { AccountCircle, Lock } from '@mui/icons-material';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
@@ -10,17 +9,32 @@ const Login = ({ onLogin }) => {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    // try {
-    //   const response = await axios.post('http://localhost:8080/login', {
-    //     email,
-    //     password,
-    //   });
-    //   console.log('Login successful:', response.data);
-      onLogin();
-      navigate('/options');
-    // } catch (error) {
-    //   console.error('Login failed:', error);
-    // }
+    try {
+      const res = await fetch("http://127.0.0.1:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      // Store the token
+      localStorage.setItem('token', data.token);
+
+      // Optionally, store the role if you need to manage user roles
+      localStorage.setItem('role', data.role);
+      if (res.ok) {
+        console.log('Login successful:', data);
+        onLogin();
+        navigate('/options');  // Redirect after successful login
+      } else {
+        console.error('Login failed:', data.message);
+      }
+    } catch (err) {
+      console.error('Error during login:', err);
+    }
   };
 
   return (
@@ -36,7 +50,7 @@ const Login = ({ onLogin }) => {
           color: 'var(--primary-color)',
         }}
       >
-        <h2 style={{fontSize:"40px"}}>Login</h2>
+        <h2 style={{ fontSize: "40px" }}>Login</h2>
         <TextField
           fullWidth
           margin="normal"
