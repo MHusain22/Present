@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Container, Box, TextField, Button, InputAdornment, IconButton } from '@mui/material';
+import { Container, Box, TextField, Button, InputAdornment, IconButton,Alert } from '@mui/material';
 import { AccountCircle, Lock } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -30,10 +31,14 @@ const Login = ({ onLogin }) => {
         onLogin();
         navigate('/options');  // Redirect after successful login
       } else {
+        setError(data.message);
         console.error('Login failed:', data.message);
       }
     } catch (err) {
+
       console.error('Error during login:', err);
+
+
     }
   };
 
@@ -50,7 +55,9 @@ const Login = ({ onLogin }) => {
           color: 'var(--primary-color)',
         }}
       >
+
         <h2 style={{ fontSize: "40px" }}>Login</h2>
+        {error && <Alert severity="error" sx={{ width: '100%', mb: 2 }}>{error}</Alert>}
         <TextField
           fullWidth
           margin="normal"
