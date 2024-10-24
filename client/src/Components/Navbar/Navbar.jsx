@@ -108,6 +108,9 @@ const Navbar = () => {
         {/* Navigation List for large screens */}
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <ButtonLink>
+            <Link to="" style={{textDecoration:"none",color:'inherit'}}>Home</Link>
+          </ButtonLink>
+          <ButtonLink>
             <Link to="login" style={{textDecoration:"none",color:'inherit'}}>Login</Link>
           </ButtonLink>
           <ButtonLink>
@@ -149,6 +152,16 @@ const Navbar = () => {
         open={Boolean(anchorEl)}
         onClose={handleMenuClose}
       >
+        <MenuItem onClick={handleMenuClose}>
+          <ButtonLink>
+            <Link to="" style={{textDecoration:"none",color:'inherit'}}>Home</Link>
+          </ButtonLink>
+        </MenuItem>
+        <MenuItem onClick={handleMenuClose}>
+          <ButtonLink>
+            <Link to="login" style={{textDecoration:"none",color:'inherit'}}>Login</Link>
+          </ButtonLink>
+        </MenuItem>
         <MenuItem onClick={handleMenuClose}>
           <ButtonLink>
             <Link to="capture" style={{textDecoration:"none",color:'inherit'}}>Capture</Link>

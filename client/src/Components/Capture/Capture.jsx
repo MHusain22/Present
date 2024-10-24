@@ -309,7 +309,7 @@ const Capture = ({ isLoggedIn }) => {
       </Box>
     </Box>
   ) : (
-    <p>Login to capture</p>
+    <p style={{textAlign:"center",marginTop:"10em",fontSize:"30px"}}>Login to capture</p>
   );
 };
 
